@@ -43,7 +43,7 @@ class BlobStore(object):
                 aws_secret_access_key=self.secret_access_key)
 
         config = boto3.session.Config(signature_version='s3', s3={
-                'addressing_style': 'virtual'}, max_pool_connections=1000)
+          'addressing_style': 'virtual'}, max_pool_connections=10000)
         self.client = self.session.client('s3', endpoint_url=self.host,
                 config=config)
 
